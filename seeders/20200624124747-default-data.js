@@ -1,16 +1,16 @@
 'use strict'
 const bcrypt = require('bcryptjs')
 const SEED_USER = {
-  name: 'root',
-  email: 'root@example.com',
-  password: '12345678'
+  name: '456',
+  email: '456@456',
+  password: '456'
 }
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Users', [{
       name: SEED_USER.name,
       email: SEED_USER.email,
-      password: bcrypt.hashSync(SEED_USER.password, bcrypt.genSaltSync(10), null),
+      password: bcrypt.hashSync(SEED_USER.password, bcrypt.genSaltSync(10)),
       createdAt: new Date(),
       updatedAt: new Date()
     }], {})

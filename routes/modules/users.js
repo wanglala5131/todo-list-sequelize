@@ -5,16 +5,7 @@ const User = db.User
 const Todo = db.Todo
 
 router.get('/login', (req, res) => {
-  return Todo.findAll({
-    raw: true,
-    nest: true
-  })
-    .then((todos) => {
-      return res.render('index', { todos: todos })
-    })
-    .catch((error) => {
-      return res.status(422).json(error)
-    })
+  res.render('login')
 })
 router.post('/login', (req, res) => {
   res.send('login-p')
