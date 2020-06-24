@@ -4,6 +4,10 @@ const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const router = require('./routes')
 
+const db = require('./models')
+const Todo = db.Todo
+const User = db.User
+
 const PORT = 3000
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: 'hbs' }))
