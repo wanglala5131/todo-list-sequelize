@@ -11,8 +11,14 @@ router.get('/login', (req, res) => {
 })
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/',
-  failureRedirect: '/users/login'
+  failureRedirect: '/users/errorLogin'
 }))
+
+router.get('/errorLogin', (req, res) => {
+  req.flash('warning_msg', 'Wrong Email or password')
+  res.redirect('/users/login')
+})
+
 router.get('/register', (req, res) => {
   res.render('register')
 })
